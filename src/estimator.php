@@ -27,7 +27,9 @@ function getStats($data, $case = 'regular')
 
   $casesForVentilatorsByRequestedTime = 0.02 * $infectionsByRequestedTime;
 
-  $dollarsInFlight = $infectionsByRequestedTime * $durationInDays * $data['avgDailyIncomeInUSD'] * $data['avgDailyIncomePopulation'];
+  $region = $data['region'];
+
+  $dollarsInFlight = $infectionsByRequestedTime * $durationInDays * $region['avgDailyIncomeInUSD'] * $region['avgDailyIncomePopulation'];
 
 
   return [
