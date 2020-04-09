@@ -37,7 +37,7 @@ function getStats($data, $case = 'regular')
     'hospitalBedsByRequestedTime' => $hospitalBedsByRequestedTime,
     'casesForICUByRequestedTime' => $casesForICUByRequestedTime,
     'casesForVentilatorsByRequestedTime' => $casesForVentilatorsByRequestedTime,
-    'dollarsInFlight' => $dollarsInFlight
+    'dollarsInFlight' => number_format($dollarsInFlight, 2, '.', '')
   ];
 }
 
