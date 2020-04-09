@@ -46,10 +46,10 @@ function getStats($data, $case = 'regular')
 function getDurationInDays($duration, $periodType)
 {
   switch ($periodType) {
-    case 'week':
+    case 'weeks':
       $computedDuration = $duration * 7;
       break;
-    case 'month':
+    case 'months':
       $computedDuration = $duration * 30;
       break;
     default:
