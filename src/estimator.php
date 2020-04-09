@@ -19,6 +19,8 @@ function getStats($data, $case = 'regular')
 
   $infectionsByRequestedTime = (int) $currentlyInfected * (2 ** floor($durationInDays / 3));
 
+  var_dump(($infectionsByRequestedTime));
+
   $severeCasesByRequestedTime = 0.15 * $infectionsByRequestedTime;
 
   $hospitalBedsByRequestedTime = $severeCasesByRequestedTime - (0.35 * $data['totalHospitalBeds']);
