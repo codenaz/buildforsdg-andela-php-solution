@@ -2,7 +2,6 @@
 
 function covid19ImpactEstimator($data)
 {
-  var_dump($data);
   $impact = getStats($data);
 
   $severeImpact = getStats($data, 'severe');
@@ -22,7 +21,7 @@ function getStats($data, $case = 'regular')
 
   $severeCasesByRequestedTime = 0.15 * $infectionsByRequestedTime;
 
-  $hospitalBedsByRequestedTime =  (0.35 * $data['totalHospitalBeds']) - $severeCasesByRequestedTime;
+  $hospitalBedsByRequestedTime =  ((int) 0.35 * $data['totalHospitalBeds']) - $severeCasesByRequestedTime;
 
   $casesForICUByRequestedTime = 0.05 * $infectionsByRequestedTime;
 
