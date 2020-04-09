@@ -17,11 +17,11 @@ function getStats($data, $case = 'regular')
 
   $durationInDays = getDurationInDays($data['timeToElapse'], $data['periodType']);
 
-  $infectionsByRequestedTime = (int) $currentlyInfected * (2 ** floor($durationInDays / 3));
+  $infectionsByRequestedTime = $currentlyInfected * (2 ** floor($durationInDays / 3));
 
   $severeCasesByRequestedTime = 0.15 * $infectionsByRequestedTime;
 
-  $hospitalBedsByRequestedTime =  ((int) (0.35 * $data['totalHospitalBeds'])) - $severeCasesByRequestedTime;
+  $hospitalBedsByRequestedTime =  (0.35 * $data['totalHospitalBeds']) - $severeCasesByRequestedTime;
 
   $casesForICUByRequestedTime = 0.05 * $infectionsByRequestedTime;
 
@@ -33,13 +33,13 @@ function getStats($data, $case = 'regular')
 
 
   return [
-    'currentlyInfected' => $currentlyInfected,
-    'infectionsByRequestedTime' => $infectionsByRequestedTime,
-    'severeCasesByRequestedTime' => $severeCasesByRequestedTime,
-    'hospitalBedsByRequestedTime' => $hospitalBedsByRequestedTime,
-    'casesForICUByRequestedTime' => $casesForICUByRequestedTime,
-    'casesForVentilatorsByRequestedTime' => $casesForVentilatorsByRequestedTime,
-    'dollarsInFlight' => number_format($dollarsInFlight, 2, '.', '')
+    'currentlyInfected' => (int) $currentlyInfected,
+    'infectionsByRequestedTime' => (int) $infectionsByRequestedTime,
+    'severeCasesByRequestedTime' => (int) $severeCasesByRequestedTime,
+    'hospitalBedsByRequestedTime' => (int) $hospitalBedsByRequestedTime,
+    'casesForICUByRequestedTime' => (int) $casesForICUByRequestedTime,
+    'casesForVentilatorsByRequestedTime' => (int) $casesForVentilatorsByRequestedTime,
+    'dollarsInFlight' => (int) $dollarsInFlight
   ];
 }
 
