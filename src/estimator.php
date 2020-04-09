@@ -2,6 +2,7 @@
 
 function covid19ImpactEstimator($data)
 {
+  var_dump($data);
   $impact = getStats($data);
 
   $severeImpact = getStats($data, 'severe');
