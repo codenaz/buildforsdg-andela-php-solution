@@ -17,7 +17,7 @@ function getStats($data, $case = 'regular')
 
   $durationInDays = getDurationInDays($data['timeToElapse'], $data['periodType']);
 
-  $infectionsByRequestedTime = $currentlyInfected * (2 ** ($durationInDays % 2));
+  $infectionsByRequestedTime = $currentlyInfected * (2 ** ($durationInDays % 3));
 
   $severeCasesByRequestedTime = 0.15 * $infectionsByRequestedTime;
 
